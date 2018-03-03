@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "RoleIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Content/Rollen.css" rel="stylesheet" />
+</head>
+<div class="spacerBody">
+    <h1>Beschikbare rollen</h1>
+    <h4> In dit overzicht staan alle rollen dit zijn aangemaakt.</h4>
+    <p>
+        @Html.ActionLink("Rol toevoegen", "RoleCreate") | @Html.ActionLink("Geef een account een rol", "RoleAddToUser")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Rollen
+            </th>
+            <th>
+                Verwijder
+            </th>
+        </tr>
+        @foreach (string s in Model)
+        {
+            <tr>
+                <td>
+                    @s
+                </td>
+                <td>
+                    <span onclick=" return confirm('Weet je zeker dat je het wil verwijderen?') ">
+                        <a href="/Account/RoleDelete?RoleName=@s" class="delete">Delete</a>
+                    </span>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

@@ -1,0 +1,91 @@
+﻿@model Baaa.Models.Portier
+
+@{
+    ViewBag.Title = "Toevoegen";
+}
+<head>
+    <link href="~/Content/Createedit.css" rel="stylesheet" />
+</head>
+
+<h1>Portier toevoegen</h1>
+<div>
+    @Html.ActionLink("Terug naar Overzicht", "Index")
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.PortierNaam, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.PortierNaam, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.PortierNaam, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.PortierAchternaam, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.PortierAchternaam, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.PortierAchternaam, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Adres, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.Adres, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.Adres, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.Postcode, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.Postcode, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.Postcode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!-- Start Right Line -->
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.PlaatsNaam, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.EditorFor(model => model.PlaatsNaam, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.PlaatsNaam, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.ProvincieId, htmlAttributes: new { @class = "" })
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.ProvincieId, ViewBag.ProvincieList as SelectList, htmlAttributes: new { @class = "form-control" })<br />
+                @Html.ValidationMessageFor(model => model.ProvincieId, "", new { @class = "text-danger" })
+            </div>
+           @Html.LabelFor(model => model.Telefoon, htmlAttributes: new { @class = "" })
+        <div class="form-group">
+            @Html.EditorFor(model => model.Telefoon, new { htmlAttributes = new { @class = "form-control" } })<br />
+            @Html.ValidationMessageFor(model => model.Telefoon, "", new { @class = "text-danger" })
+        </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(model => model.Opmerking, htmlAttributes: new { @class = "" })
+        <div class="form-group">
+            @Html.EditorFor(model => model.Opmerking, new { htmlAttributes = new { @class = "form-control opmerking" } })<br />
+            @Html.ValidationMessageFor(model => model.Opmerking, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Toevoegen" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

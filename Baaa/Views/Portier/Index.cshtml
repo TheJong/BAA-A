@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Baaa.Models.PortierViewModel>
+@{
+    ViewBag.Title = "Portier Overzicht";
+}
+<head>
+    <link href="~/Content/Overzicht.css" rel="stylesheet" />
+</head>
+<h1>Portier overzicht</h1>
+<p>
+    @Html.ActionLink("Maak een nieuwe Portier aan", "Create")
+</p>
+<br>
+<div class="filter">
+    @using (Html.BeginForm("Index", "Portier", FormMethod.Get))
+    {
+        <b> Zoeken op:</b> @Html.RadioButton("searchBy", "PortierAchternaam") <text> Achternaam </text>
+        @Html.RadioButton("searchBy", "Adres") <text> Adres </text>
+        @Html.RadioButton("searchBy", "Postcode") <text> Postcode </text>
+        @Html.RadioButton("searchBy", "PlaatsNaam") <text> Plaats </text>
+        @Html.RadioButton("searchBy", "Provincie") <text> Provincie </text>
+        @Html.RadioButton("searchBy", "Filter", true) <text> Alles </text><br /><br />
+        @Html.TextBox("search", null, new { @class = "Textbox" })
+        <button type="submit" style="border: 0; background: transparent">
+            <img src="~/Content/Images/search.png" width="30" height="30" alt="submit" />
+        </button>
+    }
+    <br />
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PortierNaam)
+        </th>
+        <th>
+            @Html.ActionLink("PortierAchternaam", "Index", new { sortOrder = ViewBag.AchterSort })
+        </th>
+        <th>
+            @Html.ActionLink("Adres", "Index", new { sortOrder = ViewBag.AdresSort })
+        </th>
+        <th>
+            @Html.ActionLink("Postcode", "Index", new { sortOrder = ViewBag.PostcodeSort })
+        </th>
+        <th>
+            @Html.ActionLink("PlaatsNaam", "Index", new { sortOrder = ViewBag.PlaatsNaamSort })
+        </th>
+        <th>
+            @Html.ActionLink("Provincie", "Index", new { sortOrder = ViewBag.ProvincieSort })
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortierNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PortierAchternaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaatsNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProvincieName)
+            </td>
+            <td>
+                @Html.ActionLink(".", "Delete", new { id = item.Id }, new { title = "Delete", @class = "Delete" })
+                @Html.ActionLink(".", "Edit", null, new { id = item.Id }, new { title = "Edit", @class = "Edit" })
+                @Html.ActionLink(".", "Details", new { id = item.Id }, new { title = "Detail", @class = "Detail" })
+            </td>
+        </tr>
+    }
+</table>

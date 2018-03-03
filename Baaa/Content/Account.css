@@ -1,0 +1,21 @@
+﻿@font-face {
+    font-family: 'Games-Italic';
+    src: url('Fonts/Games-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'CallingCode-Regular';
+    src: url('Fonts/CallingCode-Regular.otf') format('opentype');
+}
+body {
+
+}
+
+h1 {
+    font-family: 'Games-Italic';
+}
+h4 {
+    font-family: 'CallingCode-Regular';
+}
+.bodytext {
+    font-size: 18px;
+}

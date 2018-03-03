@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Rol toevoegen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Content/Rollen.css" rel="stylesheet" />
+</head>
+<div class="spacerBody">
+    <h1>Maak een nieuwe rol aan</h1>
+    <p>
+        @Html.ActionLink("Bekijk rollen overzicht", "RoleIndex") | @Html.ActionLink("Geef een account een rol", "RoleAddToUser")
+    </p>
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2"> Nieuwe Rol Naam: </label>
+                <div class="col-md-10">
+                    @Html.TextBox("RoleName", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Toevoegen" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

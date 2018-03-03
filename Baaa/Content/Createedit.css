@@ -1,0 +1,27 @@
+﻿@font-face {
+    font-family: 'Games-Italic';
+    src: url('Fonts/Games-Italic.ttf') format('truetype');
+}
+
+body {
+    text-align: center;
+    background-image: none;
+    background-color: #231f20;
+}
+
+h1 {
+    font-family: 'Games-Italic';
+    text-align: center;
+}
+
+.form-control {
+    display:inline;
+}
+
+.col-md-offset-2{
+    margin-left:0;
+}
+
+.opmerking{
+     max-width: 740px;
+}

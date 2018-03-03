@@ -1,0 +1,115 @@
+﻿@model Baaa.Models.KlantenDetail
+
+    @{
+        ViewBag.Title = "Klant Gegevens";
+    }
+    <head>
+        <link href="~/Content/Delete.css" rel="stylesheet" />
+    </head>
+    <h1>Klant Gegevens</h1>
+    <center>
+
+        @Html.ActionLink("Terug naar Overzicht", "Index")
+    </center>
+    <div class="row">
+    <br /><br /><br />
+    <hr />
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.VoorNaam):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.VoorNaam)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AchterNaam):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AchterNaam)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Adres):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Adres)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Postcode):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Postcode)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PlaatsNaam):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PlaatsNaam)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProvincieName):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProvincieName)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefoon):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Telefoon)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Opslag):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Opslag)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DierName):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DierName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OpvangName):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OpvangName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ObserverenName):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ObserverenName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WeghaalName):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WeghaalName)
+            </dd>
+        </dl>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Opmerking):
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Opmerking)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+    <hr />

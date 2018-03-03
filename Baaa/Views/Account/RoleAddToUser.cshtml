@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Geef rol aan gebruiker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Content/Rollenbeheer.css" rel="stylesheet" />
+</head>
+<div class="spacerBody">
+
+    <h1>Gebruikers Beheer</h1>
+    @Html.ActionLink("Nieuwe rol maken", "RoleCreate") | @Html.ActionLink("Rollen overzicht", "RoleIndex")
+    <hr />
+    <h3 style="color:green;" class="message-success">@ViewBag.ResultMessage</h3>
+    <div class="row">
+        <div class=" col-md-6">
+            <h2>Geef een gebruiker een rol</h2>
+            <p>Hier kan een rol worden toegevoegd aan de geselecteerde gebruiker.</p>
+
+            @using (Html.BeginForm("RoleAddToUser", "Account"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <label class="control-label">Gebruikersnaam : </label>
+
+                @Html.DropDownList("UserName", ViewBag.Users as SelectList, new { @class = "form-control" })
+
+                <label class="control-label"> Rol naam: </label>
+
+                @Html.DropDownList("RoleName", ViewBag.Roles as SelectList, new { @class = "form-control" })
+                <br />
+                <div>
+                    <input type="submit" value="Opslaan" class="btn btn-default" />
+                </div>
+            }
+        </div>
+        <div class=" col-md-6">
+            <h2>Verwijder een rol van een gebruiker</h2>
+            <p>Hier kan een rol van een gebruiker verwijderd worden.</p>
+            @using (Html.BeginForm("DeleteRoleForUser", "Account"))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <label class="control-label">Gebruikersnaam : </label>
+
+                @Html.DropDownList("UserName", ViewBag.Users as SelectList, new { @class = "form-control" })
+
+                <label class="control-label"> Rol naam: </label>
+
+                @Html.DropDownList("RoleName", ViewBag.Roles as SelectList, new { @class = "form-control" })
+                <br />
+                <div>
+                    <input type="submit" value="Verwijderen" class="btn btn-default" />
+                </div>
+            }
+        </div>
+    </div>
+    <br /><br /><br /><br />
+    <div class="row">
+        <div class=" col-md-6 bekijk">
+            <h2>Bekijk gebruikers rol</h2>
+            <p>Hier worden de huidige rollen weergegeven van de gebruiker</p>
+            @using (Html.BeginForm("GetRoles", "Account"))
+            {
+                @Html.AntiForgeryToken()
+
+                <label class="control-label">Gebruikersnaam : </label>
+
+                @Html.DropDownList("UserName", ViewBag.Users as SelectList, new { @class = "form-control" })
+                <br />
+                <div>
+                    <input type="submit" value="Bekijk rollen van deze gebruiker" class="btn btn-default" />
+                </div>
+
+
+            }
+        </div>
+        <div class=" col-md-6">
+            @if (ViewBag.RolesForThisUser != null)
+            {
+                <text>
+                    <h2>Rollen van deze gebruiker </h2>
+                    <ol>
+                        @foreach (string s in ViewBag.RolesForThisUser)
+                        {
+                            <li>@s</li>
+                        }
+                    </ol>
+                </text>
+            }
+        </div>
+    </div>
+
+
+</div>
